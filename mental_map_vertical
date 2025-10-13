@@ -1,0 +1,94 @@
+// Mental Map
+digraph {
+	graph [rankdir=TB splines=ortho]
+	root [label="Авторизация" color=black fillcolor=lightgreen shape=box style=filled]
+	student [label="Личный кабинет студента" color=black fillcolor=lightyellow shape=box style=filled]
+	admin [label="Административная панель" color=black fillcolor=lightpink shape=box style=filled]
+	curator [label="Личный кабинет куратора" color=black fillcolor=lightpink shape=box style=filled]
+	auth_process [label="Процесс входа" color=black fillcolor=red shape=box style=filled]
+	root -> student
+	root -> admin
+	root -> curator
+	root -> auth_process
+	subgraph cluster_student {
+		rank=same
+		s1 [label="Профиль студента" shape=box]
+		s2 [label="Дашборд студента" shape=box]
+		s3 [label="Список доступных мероприятий" shape=box]
+		s4 [label="Список всех мероприятий" shape=box]
+		s5 [label="Регистрация на мероприятие" shape=box]
+		s6 [label="Рекомендации мероприятий" shape=box]
+		s7 [label="Мои записи на мероприятие" shape=box]
+		s8 [label="Отметка посещения с помощью QR-кода" shape=box]
+		s9 [label="Детали мероприятия" shape=box]
+		s10 [label="История посещений" shape=box]
+	}
+	student -> s1
+	student -> s2
+	student -> s3
+	student -> s4
+	student -> s5
+	student -> s6
+	student -> s7
+	student -> s8
+	s3 -> s9
+	s4 -> s9
+	s7 -> s10
+	subgraph cluster_admin {
+		rank=same
+		a1 [label="Профиль администратора" shape=box]
+		a2 [label="Дашборд администратора" shape=box]
+		a3 [label="Управление мероприятиями" shape=box]
+		a4 [label="Список всех мероприятий" shape=box]
+		a5 [label="Управление пользователями" shape=box]
+		a6 [label="Управление группами" shape=box]
+		a7 [label="Список администраторов" shape=box]
+		a8 [label="Справка для администратора" shape=box]
+		a9 [label="Экспорт данных" shape=box]
+		a10 [label="Отчеты и аналитика" shape=box]
+	}
+	admin -> a1
+	admin -> a2
+	admin -> a3
+	admin -> a4
+	admin -> a5
+	admin -> a6
+	admin -> a7
+	admin -> a8
+	admin -> a9
+	admin -> a10
+	subgraph cluster_curator {
+		rank=same
+		c1 [label="Профиль куратора" shape=box]
+		c2 [label="Дашборд куратора" shape=box]
+		c3 [label="Список всех мероприятий" shape=box]
+		c4 [label="Справка для куратора" shape=box]
+		c5 [label="Экспорт данных" shape=box]
+		c6 [label="Отчеты и аналитика" shape=box]
+		c7 [label="Рейтинг студентов" shape=box]
+		c8 [label="Справка по отчетам" shape=box]
+		c9 [label="Управление посещаемостью" shape=box]
+		c10 [label="Отчеты по группам" shape=box]
+		c11 [label="Отчеты по студентам" shape=box]
+	}
+	curator -> c1
+	curator -> c2
+	curator -> c3
+	curator -> c4
+	curator -> c5
+	curator -> c6
+	curator -> c7
+	curator -> c8
+	curator -> c9
+	curator -> c10
+	curator -> c11
+	subgraph cluster_auth_process {
+		rank=same
+		ap1 [label="Страница входа" shape=box]
+		ap2 [label="Страница регистрации" shape=box]
+		ap3 [label="Восстановление пароля" shape=box]
+	}
+	auth_process -> ap1
+	auth_process -> ap2
+	auth_process -> ap3
+}
