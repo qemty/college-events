@@ -1,61 +1,122 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌐 Event Tracker Web Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> **A web application for planning, systematizing, and tracking student attendance at cultural and educational events.**
 
-## About Laravel
+[![Web Application](https://img.shields.io/badge/Type-Web%20Application-blue?style=for-the-badge)](https://en.wikipedia.org/wiki/Web_application) 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🎯 Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The **Event Tracker Web Application** is designed to streamline the management of cultural and educational events for educational institutions. It provides a centralized platform for event planning, student registration, and automated attendance tracking, significantly improving the organization and reporting of extracurricular activities.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### ✨ Key Features
 
-## Learning Laravel
+- 🔐 **Authentication & Authorization** - Secure login system with role-based access (Administrator, Curator, and Student).
+- 📅 **Event Management** - View, filter, edit, and add upcoming events (date, time, location, description, max participants).
+- 📝 **Student Registration** - Students can sign up for events and cancel their registration before the start.
+- 🔔 **Email Notifications** - Automated email reminders for upcoming events and password recovery.
+- 📊 **Attendance Tracking** - Automatic registration of attendance (via QR code) and history viewing for students.
+- 📈 **Reporting & Analytics** - Generate statistical reports on attendance by group, event type, and time period.
+- 📤 **Data Export** - Functionality to export stored data and reports (PDF, Word, Excel).
+- 📱 **Adaptive Design** - Responsive layout for correct display on modern browsers and devices.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Technology Stack
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The application is built using a modern, robust web development stack:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Component | Technology | Version/Details |
+|---|---|---|
+| **Backend Framework** | Laravel | Used for business logic, controllers, and models. |
+| **Backend Language** | PHP | 8.3.1 |
+| **Database** | MySQL | 5.7.24 |
+| **Web Server** | Apache/Nginx | Handles HTTP/HTTPS requests. |
+| **Frontend** | Blade Templates | Used for the user interface (Views). |
+| **Caching/Queue** | Redis, Memcached | Used for optimization and asynchronous tasks (e.g., notifications). |
+| **Email Service** | SMTP (Gmail) | Used for notifications and password recovery. |
 
-## Laravel Sponsors
+## 📋 Core Functionality
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🔑 Authentication and User Roles
 
-### Premium Partners
+- **Secure Login:** User authentication with username and password.
+- **Password Recovery:** Via email for students.
+- **Role-Based Access:** Separate interfaces and permissions for **Administrator**, **Curator**, and **Student**.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 📅 Event Management (Administrator/Curator)
 
-## Contributing
+- **Event CRUD:** Create, Read, Update, and Delete events.
+- **Filtering:** Filter events by date, type, and theme.
+- **Details:** Specify date, time, location, description, and maximum number of participants.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📝 Student Interaction (Student)
 
-## Code of Conduct
+- **Event Listing:** View a list of upcoming events.
+- **Filtering:** Filter events by date, type, and theme.
+- **Registration:** Sign up for an event.
+- **Cancellation:** Cancel registration before the event starts.
+- **History:** View personal attendance history.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 📊 Reporting and Analytics
 
-## Security Vulnerabilities
+- **Attendance Analysis:** Analyze attendance by various criteria (e.g., by student group, event type).
+- **Statistical Reports:** Generate reports for the administrator, including event statistics and total visits over a selected period.
+- **Data Operations:** Provide capabilities for viewing, searching, sorting, and filtering all stored information.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🏗️ System Architecture
 
-## License
+The application follows a standard web application architecture, likely a **Three-Tier Architecture** or a **Client-Server Model**. The system's structure and data flow are detailed in the following diagrams:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Diagram | Description | Image |
+|---|---|---|
+| **Use Case Diagram** | Describes the interaction of users (Administrator, Curator, Student) with the system. | ![Use Case Diagram](src/assets/diagrams/use-case.png) |
+| **Entity-Relationship Diagram** | Reflects the logical structure of the database, showing key entities and their relationships. | ![ER Diagram](src/assets/diagrams/erd.png) |
+| **Deployment Diagram** | Illustrates the physical deployment architecture (Client, Web Server, PHP/Laravel, MySQL). | ![Deployment Diagram](src/assets/diagrams/deployment.png) |
+
+The architecture ensures data storage, user authentication, business logic execution, and a responsive user interface. This is only a small part of the overall system functionality.
+
+## 💾 Database Schema
+
+The system uses a relational database (MySQL) to store and manage all application data. Key entities include:
+
+| Entity | Russian Name | Key Attributes |
+|---|---|---|
+| **User** | Пользователь | Name, Email, Password, Role, Group |
+| **Event** | Мероприятие | Title, Description, Date/Time, Location, Max Participants, Type |
+| **Registration** | Регистрация | User ID, Event ID, Confirmation Status |
+| **Attendance** | Посещение | User ID, Event ID, Fact of Attendance |
+| **Group** | Группа | Description |
+| **Invitation** | Приглашение | Role, Group, Usage Status, Expiration Date |
+
+## 📸 Screenshots
+
+Here are some screenshots illustrating key user flows and interface elements:
+
+| Screenshot | Description |
+|---|---|
+| ![Registration Page](src/assets/screenshots/1.png) | **Registration Page** with filled input fields. |
+| ![Student Home Page](src/assets/screenshots/2.png) | **Student Home Page.** |
+| ![Invalid Token Error](src/assets/screenshots/3.png) | Result of an attempt to register with an **invalid token**. |
+| ![Create Event Page](src/assets/screenshots/4.png) | **Create Event Page** with necessary input fields filled. |
+| ![Event Details Page](src/assets/screenshots/5.png) | **Detailed Event Information Page.** |
+| ![Access Denied](src/assets/screenshots/6.png) | Result of a student attempting to access the **Create Event Page**. |
+| ![Create Invitation Page](src/assets/screenshots/7.png) | **Create Invitation Page.** |
+| ![Successful Invitation](src/assets/screenshots/8.png) | Result of a **successful invitation creation.** |
+| ![Student Event Details](src/assets/screenshots/9.png) | **Detailed Event Information Page for a student.** |
+| ![Successful Registration](src/assets/screenshots/10.png) | Result of a **successful event registration by a student.** |
+| ![Analytics Access Denied](src/assets/screenshots/11.png) | Result of a student attempting to access the **Analytics and Reports Page**. |
+
+## 🔧 System Requirements
+
+The web application must meet the following requirements:
+
+- **Browser Compatibility:** Correct display in the latest versions of modern web browsers.
+- **Adaptive Layout:** Responsive design for various screen sizes (desktop, tablet, mobile).
+- **Server:** Hosting environment capable of running the chosen backend technology and database.
+- **Email Service:** Integration with an email service for notifications and password recovery.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
+
+**⭐ If you find this project useful, please consider giving it a star!**
+
+
